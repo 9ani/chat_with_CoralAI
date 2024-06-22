@@ -1,4 +1,3 @@
-// lib/hooks/useWebsocket.ts
 
 import { useEffect, useRef, useState } from 'react';
 
@@ -16,16 +15,13 @@ const useWebSocket = (url: string) => {
     webSocket.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data);
-        // Check if the parsed data is an object (JSON)
         if (typeof data === 'object' && data !== null) {
           setMessages((prevMessages) => [...prevMessages, { text: data.text, isUser: false }]);
         } else {
-          // Handle non-JSON messages here if needed
           console.log('Received non-JSON message:', event.data);
         }
       } catch (error) {
         console.error('Error parsing message:', error);
-        // Handle parsing errors here
       }
     };
 
