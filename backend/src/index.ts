@@ -24,7 +24,7 @@ const server = http.createServer(app);
 
 server.on('upgrade', (request, socket, head) => {
   const origin = request.headers.origin;
-  if (origin === 'http://localhost:3000') {
+  if (origin === 'https://chat-with-coralai.onrender.com') {
     wss.handleUpgrade(request, socket, head, (ws) => {
       wss.emit('connection', ws, request);
     });

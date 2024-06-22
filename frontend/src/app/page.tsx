@@ -8,7 +8,7 @@ import { JSX, SVGProps, useEffect, useRef, useState } from 'react';
 import Message from '@/components/message';
 
 export default function Home() {
-  const { messages, sendMessage } = useWebSocket('ws://localhost:5000');
+  const { messages, sendMessage } = useWebSocket('ws://chat-with-coralai.onrender.com');
   const [prompt, setPrompt] = useState('');
 
   const handleSend = () => {
